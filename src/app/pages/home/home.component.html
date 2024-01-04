@@ -1,0 +1,48 @@
+
+
+<div class="section container">
+  <h1>Discover weather</h1>
+  <form >
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Enter City</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="City">
+  </div>
+  <div class="mb-3">
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Select type response</option>
+      <option value="imperial">Fahrenheit</option>
+      <option value="metric">Celsius</option>
+      <option value="3">Kelvin</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Seach</button>
+  </div>
+
+</form>
+
+<br />
+
+<div *ngIf="weatherResponse">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="../../../assets/img/icon.png" class="img-fluid rounded-start" style="margin-left: 25px; margin-top: 25px;"  alt="icon">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{weatherResponse.name}}</h5>
+            <h6 class="card-title">{{weatherResponse.sys.country}}</h6>
+            <h6 class="card-title">Feels like :{{weatherResponse.main.feels_like}} ºC - {{weatherResponse.weather[0].description}}  </h6>
+            <p><small>Humidity:{{weatherResponse.main.humidity}} </small></p>
+            <h6 class="card-title">Min: {{weatherResponse.main.temp_min}} - Max:{{weatherResponse.main.temp_max}} </h6>
+            <p class="card-text"><small class="text-body-secondary">Cloud:{{weatherResponse.clouds.all}} </small></p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+  </div>
+
+</div>
